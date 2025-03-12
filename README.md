@@ -29,6 +29,8 @@ BlinkNews is an AI-powered news aggregation platform that combines real-time new
 - Google Gemini API key
 - pip (Python package manager)
 
+## Screenshots
+
   ![image](https://github.com/user-attachments/assets/0561c366-be7c-45f9-8c6b-700a9c4e5e94)
   ![image](https://github.com/user-attachments/assets/acdea47b-e4b9-44b4-ba77-7318cdd3f5f4)
 
