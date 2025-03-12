@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block title %}{{ article.title }}{% endblock %}
+
+{% block content %}
+<div class="container">
+    <article class="article-full">
+        <!-- Article Header -->
+        <header class="article-header">
+            <div class="category-label mb-2">{{ article.category }}</div>
+            <h1 class="article-page-title">{{ article.title }}</h1>
+            <div class="article-meta mb-4">
+                <span class="source">{{ article.source }}</span>
+                {% if article.author %}
+                <span class="mx-2">|</span>
+                <span class="author">{{ article.author }}</span>
+                {% endif %}
+                <span class="mx-2">|</span>
+                <span class="date">
+                    {% if article.published_at %}
+                    {{ article.published_at.strftime('%B %d, %Y') if article.published_at is not string else article.published_at.split('T')[0] }}
+                    {% endif %}
+                </span>
+            </div>
+        </header>
+
+        <!-- Article Image -->
+        {% if article.url_to_image %}
+        <figure class="article-figure mb-4">
+            <img src="{{ article.url_to_image }}" 
+                 alt="{{ article.title }}" 
+                 class="img-fluid">
+        </figure>
+        {% endif %}
+
+        <!-- AI Summary -->
+        <div class="summary-section">
+            <h2>AI-Generated Key Points</h2>
+            <div class="summary-content">
+                {{ article.summary }}
+            </div>
+        </div>
+
+        <!-- Article Content -->
+        <div class="article-content">
+            {{ article.content }}
+        </div>
+
+        <!-- Source Link -->
+        <div class="source-link mt-5">
+            <a href="{{ article.url }}" 
+               target="_blank" 
+               rel="noopener noreferrer" 
+               class="btn btn-outline-dark">
+                Read Full Article at {{ article.source }}
+            </a>
+        </div>
+    </article>
+</div>
+{% endblock %}

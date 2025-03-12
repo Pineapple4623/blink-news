@@ -1,0 +1,4 @@
+# to run celery for background tasks
+celery -A tasks worker --loglevel=info
+# to run gunicorn
+gunicorn --reload -w 4 -b 0.0.0.0:8000 app:app
